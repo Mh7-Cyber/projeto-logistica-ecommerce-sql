@@ -16,7 +16,7 @@ join olist_orders_dataset ped on cus.customer_id = ped.customer_id
 WHERE order_status = 'delivered'
 	AND order_delivered_customer_date IS NOT NULL
 GROUP BY estado
-ORDER BY tempo_medio ASC
+ORDER BY tempo_medio ASC;
 
 -- 2. TAXA DE ENTREGAS COM ATRASO
 -- Descobre a porcentagem de pedidos em que a data real de entrega ultrapassou a estimada.
@@ -29,7 +29,7 @@ WHERE order_status = 'delivered'
 	AND order_delivered_customer_date IS NOT NULL;
 
 
--- 3. EVOLUÇÃO DE CANCELAMENTOS NO ANO DE 2018 (MÊS A MÊS)
+-- 3. EVOLUÇÃO DE CANCELAMENTOS NO ANO DE 2017 (MÊS A MÊS)
 -- Analisa a saúde das operações mês a mês filtrando pedidos que não deram certo.
 
 SELECT 
@@ -40,5 +40,5 @@ FROM olist_orders_dataset
 WHERE order_status = "canceled"
 	AND YEAR(order_purchase_timestamp) = 2017
 GROUP BY mes
-ORDER BY mes DESC
+ORDER BY mes DESC;
 
